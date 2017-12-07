@@ -16,6 +16,25 @@
             // Create Markers
             View.createMarkers(Model.hoopLocations);
 
+            // Add Marker Info Windows
+            View.markers.forEach(function(markerItem) {
+                markerItem.addListener('click', function() {
+                    populateInfoWindow(this, View.infoWindow);
+                });
+            });
+
+        }
+
+        function populateInfoWindow(marker, infoWindow) {
+
+            // clear marker property if the infoWindow is closed
+            infoWindow.addListener('closeclick', function() {
+                infoWindow.marker = null;
+            });
+
+            // add title of court to content string and render in UI
+            infoWindow.setContent('<div>' + marker.title + '</div>');
+            infoWindow.open(View.googleMapObject, marker);
         }
 
         // created vm class in order to invoke when loaded

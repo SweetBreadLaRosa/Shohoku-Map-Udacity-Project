@@ -29,3 +29,11 @@ body {
     height: 100%;
     position: relative;
 }
+
+.area-text-container {
+    padding: 10px 0 0 0;
+}
+
+#area-text {
+    width: 80%;
+}

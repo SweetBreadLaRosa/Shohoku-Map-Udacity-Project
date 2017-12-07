@@ -6,6 +6,7 @@
         mapElement: null,
         googleMapObject: null,
         markers: [],
+        infoWindow: null,
 
         createMap: function (mapObject) {
 
@@ -13,8 +14,10 @@
             this.mapElement = document.getElementById('map');
 
             // render map object
-            console.log('map object', mapObject);
             this.googleMapObject = new google.maps.Map(this.mapElement, mapObject || {});
+
+            // initialize info window
+            this.infoWindow = new google.maps.InfoWindow();
         },
 
         createMarkers: function (locationsCollection) {
