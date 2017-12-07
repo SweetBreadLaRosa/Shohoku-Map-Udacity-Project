@@ -7,6 +7,7 @@
         googleMapObject: null,
         markers: [],
         infoWindow: null,
+        styles: null,
 
         createMap: function (mapObject) {
 

@@ -23,6 +23,71 @@
             {
                 title: 'Seattle Athletics Club', location: { lat: 47.6108, lng: -122.3439 }
             }
+        ],
+
+        mapStyles: [
+            {
+                featureType: 'water',
+                stylers: [
+                    { color: '#19a0d8' }
+                ]
+            },
+            {
+                featureType: 'administrative',
+                elementType: 'labels.text.stroke',
+                stylers: [
+                    { color: '#ffffff' },
+                    { weight: 6 }
+                ]
+            },
+            {
+                featureType: 'administrative',
+                elementType: 'labels.text.fill',
+                stylers: [
+                    { color: '#e85113' }
+                ]
+            },
+            {
+                featureType: 'road.highway',
+                elementType: 'geometry.stroke',
+                stylers: [
+                    { color: '#efe9e4' },
+                    { lightness: -40 }
+                ]
+            },
+            {
+                featureType: 'poi.park',
+                elementType: 'labels.text.fill',
+                stylers: [{color: '#447530'}]
+            },
+            {
+                featureType: 'transit.station',
+                stylers: [
+                    { weight: 9 },
+                    { hue: '#e85113' }
+                ]
+            },
+            {
+                featureType: 'road.highway',
+                elementType: 'labels.icon',
+                stylers: [
+                    { visibility: 'off' }
+                ]
+            },
+            {
+                featureType: 'water',
+                elementType: 'labels.text.stroke',
+                stylers: [
+                    { lightness: 100 }
+                ]
+            },
+            {
+                featureType: 'water',
+                elementType: 'labels.text.fill',
+                stylers: [
+                    {lightness: 100}
+                ]
+            }
         ]
     };
 

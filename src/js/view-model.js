@@ -10,7 +10,8 @@
             // Create Map
             View.createMap({
                 center: Model.initLocation,
-                zoom: Model.initZoom
+                zoom: Model.initZoom,
+                styles: Model.mapStyles
             });
 
             // Create Markers
