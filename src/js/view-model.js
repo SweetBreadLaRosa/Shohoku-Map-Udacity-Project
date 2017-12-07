@@ -7,10 +7,14 @@
         // First this should initialize the whole app
         function initializeApp() {
 
+            // Create Map
             View.createMap({
                 center: Model.initLocation,
                 zoom: Model.initZoom
             });
+
+            // Create Markers
+            View.createMarkers(Model.hoopLocations);
 
         }
 
