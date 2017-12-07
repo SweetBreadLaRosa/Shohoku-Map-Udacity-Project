@@ -1,0 +1,24 @@
+{
+  "name": "shohoku-map-udacity-project",
+  "version": "1.0.0",
+  "description": "Maps Project for Frontend Nano Degree",
+  "main": "index.js",
+  "dependencies": {
+    "jquery": "^3.2.1",
+    "knockout": "^3.4.2"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/SweetBreadLaRosa/Shohoku-Map-Udacity-Project.git"
+  },
+  "author": "John LaRosa",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/SweetBreadLaRosa/Shohoku-Map-Udacity-Project/issues"
+  },
+  "homepage": "https://github.com/SweetBreadLaRosa/Shohoku-Map-Udacity-Project#readme"
+}

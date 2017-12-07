@@ -1,10 +1,32 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns="http://www.w3.org/1999/html">
 <head>
     <meta charset="UTF-8">
     <title>Starting Map Project</title>
+    <link rel="stylesheet" type="text/css" href="src/styles.css">
 </head>
 <body>
-Hello Map!!!
+
+<div class="container">
+    <div class="options-box">
+        <h1>Hoops in Seattle</h1>
+        <hr>
+    </div>
+    <div id="map"></div>
+</div>
+
+<script>
+    function loadMap() {
+        map = new google.maps.Map(document.getElementById('map'), {
+            center: { lat: 47.6062, lng: -122.3321 },
+            zoom: 14
+        });
+    }
+</script>
+
+<script async defer
+        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBYQq1wDtNzOsecV0x_uLqSWzkZnU0yyks&v=3&callback=loadMap">
+</script>
+
 </body>
 </html>
