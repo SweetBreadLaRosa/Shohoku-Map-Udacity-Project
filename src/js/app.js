@@ -2,9 +2,11 @@
 (function() {
 
     this.loadMap = function() {
-        {
-            new ViewModel();
-        }
+        ko.applyBindings(new ViewModel());
     };
+
+    this.errorLoadingGoogleApi = function() {
+        // todo: show error message
+    }
 
 }).call(window);

@@ -4,6 +4,13 @@
     // create a ViewModel object/class
     var ViewModel = function() {
 
+        var self = this;
+
+        // or else its undefined in the window
+        this.filterAndListLocations = filterAndListLocations;
+        this.locationsList = ko.observableArray(Model.hoopLocations.slice(0));
+        this.filterSearchText = ko.observable('');
+
         // First this should initialize the whole app
         function initializeApp() {
 
@@ -35,15 +42,27 @@
             });
         }
 
+        // list and filter locations
+        // ids for # and classes are .
+        function filterAndListLocations() {
+            // grab the text from the dom, grab in the view
+            var text = self.filterSearchText();
+
+            // for loop to match
+        }
+
         function populateInfoWindow(marker, infoWindow) {
 
             // clear marker property if the infoWindow is closed
             infoWindow.addListener('closeclick', function() {
-                infoWindow.marker.setAnimation(null);
+                if (infoWindow.marker) {
+                    infoWindow.marker.setAnimation(null);
+                }
                 infoWindow.marker = null;
             });
 
             // add title of court to content string and render in UI
+            // todo: maybe we should move this to the view
             infoWindow.setContent('<div>' + marker.title + '</div>');
             infoWindow.open(View.googleMapObject, marker);
 

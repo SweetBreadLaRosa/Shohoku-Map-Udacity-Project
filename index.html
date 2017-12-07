@@ -12,13 +12,23 @@
         <h1>Hoops in Seattle!</h1>
         <hr>
         <div class="area-text-container">
-            <input id="area-text" type="text" placeholder="Filter your court!">
+            <input id="area-text" type="text"
+                   data-bind="
+                   textInput: filterSearchText,
+                   event: {
+                        input: filterAndListLocations
+                   }"
+                   placeholder="Filter your court!">
         </div>
+        <ul class="filtered-locations" data-bind="foreach: locationsList">
+            <li data-bind="text: title"></li>
+        </ul>
     </div>
     <div id="map"></div>
 </div>
 
 <script src="./node_modules/knockout/build/output/knockout-latest.js"></script>
+<script src="./node_modules/jquery/dist/jquery.min.js"></script>
 
 <script src="src/js/model.js"></script>
 <script src="src/js/view.js"></script>
@@ -26,7 +36,8 @@
 <script src="src/js/app.js"></script>
 
 <script async defer
-        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBYQq1wDtNzOsecV0x_uLqSWzkZnU0yyks&v=3&callback=loadMap">
+        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBYQq1wDtNzOsecV0x_uLqSWzkZnU0yyks&v=3&callback=loadMap"
+        onerror="errorLoadingGoogleApi()">
 </script>
 
 </body>
