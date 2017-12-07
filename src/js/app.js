@@ -3,7 +3,7 @@
 
     this.loadMap = function() {
         {
-            ko.applyBindings(new ViewModel());
+            new ViewModel();
         }
     };
 

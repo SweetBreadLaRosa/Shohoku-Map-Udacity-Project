@@ -14,7 +14,7 @@
 
         }
 
-        // start the app!
+        // created vm class in order to invoke when loaded
         initializeApp();
 
     };
