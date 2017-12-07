@@ -88,7 +88,9 @@
                     {lightness: 100}
                 ]
             }
-        ]
+        ],
+
+        markerColor: '8aacb8'
     };
 
     // using the function call to attach the model to the window so I can grab it globally

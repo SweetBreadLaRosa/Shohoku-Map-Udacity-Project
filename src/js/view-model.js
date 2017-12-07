@@ -21,9 +21,18 @@
             View.markers.forEach(function(markerItem) {
                 markerItem.addListener('click', function() {
                     populateInfoWindow(this, View.infoWindow);
+                    // make it bounce also haha
+                    toggleBounce(markerItem);
                 });
             });
+        }
 
+        function toggleBounce(marker) {
+            if (marker.getAnimation() !== null) {
+                marker.setAnimation(null);
+            } else {
+                marker.setAnimation(google.maps.Animation.BOUNCE);
+            }
         }
 
         function populateInfoWindow(marker, infoWindow) {
@@ -31,6 +40,7 @@
             // clear marker property if the infoWindow is closed
             infoWindow.addListener('closeclick', function() {
                 infoWindow.marker = null;
+                infoWindow.marker.animation = null;
             });
 
             // add title of court to content string and render in UI
