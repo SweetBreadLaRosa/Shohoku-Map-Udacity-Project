@@ -14,6 +14,14 @@
                 styles: Model.mapStyles
             });
 
+            // add closeclick event
+            View.infoWindow.addListener('closeclick', function() {
+                if (View.infoWindow.marker) {
+                View.infoWindow.marker.setAnimation(null);
+                }
+                View.infoWindow.marker = null;
+            });
+
             // Create Markers
             View.createMarkers(Model.hoopLocations);
 
@@ -22,30 +30,28 @@
                 markerItem.addListener('click', function() {
                     populateInfoWindow(this, View.infoWindow);
                     // make it bounce also haha
-                    toggleBounce(markerItem);
+                    markerItem.setAnimation(google.maps.Animation.BOUNCE);
                 });
             });
-        }
-
-        function toggleBounce(marker) {
-            if (marker.getAnimation() !== null) {
-                marker.setAnimation(null);
-            } else {
-                marker.setAnimation(google.maps.Animation.BOUNCE);
-            }
         }
 
         function populateInfoWindow(marker, infoWindow) {
 
             // clear marker property if the infoWindow is closed
             infoWindow.addListener('closeclick', function() {
+                infoWindow.marker.setAnimation(null);
                 infoWindow.marker = null;
-                infoWindow.marker.animation = null;
             });
 
             // add title of court to content string and render in UI
             infoWindow.setContent('<div>' + marker.title + '</div>');
             infoWindow.open(View.googleMapObject, marker);
+
+            if (infoWindow.marker) {
+                infoWindow.marker.setAnimation(null);
+            }
+
+            infoWindow.marker = marker;
         }
 
         // created vm class in order to invoke when loaded
