@@ -10,6 +10,7 @@
         this.filterAndListLocations = filterAndListLocations;
         this.locationsList = ko.observableArray(Model.hoopLocations.slice(0));
         this.filterSearchText = ko.observable('');
+        this.onLocationClick = onLocationClick;
 
         // First this should initialize the whole app
         function initializeApp() {
@@ -34,12 +35,14 @@
 
             // Add Marker Info Windows
             View.markers.forEach(function(markerItem) {
-                markerItem.addListener('click', function() {
-                    populateInfoWindow(this, View.infoWindow);
-                    // make it bounce also haha
-                    markerItem.setAnimation(google.maps.Animation.BOUNCE);
-                });
+                markerItem.addListener('click', displayMarker.bind(this, markerItem));
             });
+        }
+
+        function displayMarker(marker) {
+                populateInfoWindow(marker, View.infoWindow);
+                // make it bounce also haha
+                marker.setAnimation(google.maps.Animation.BOUNCE);
         }
 
         // list and filter locations
@@ -48,13 +51,23 @@
             // grab the text from the dom, grab in the view
             var text = self.filterSearchText();
             var filteredAreas = [];
+            var filteredMarkers = [];
 
             // for loop to match or not?
-            for (var i = 0; i < Model.hoopLocations.length; ++i) {
-                if (Model.hoopLocations[i].title.toLowerCase().includes(text)) {
-                    filteredAreas.push(Model.hoopLocations[i]);
+            for (var i = 0; i < View.markers.length; ++i) {
+                if (View.markers[i].locationData.title.toLowerCase().includes(text)) {
+                    filteredAreas.push(View.markers[i].locationData);
+                    filteredMarkers.push(View.markers[i]);
                 }
             }
+
+            // hide first
+            View.hideMarkers(View.markers);
+
+            // show the filtered ones
+            View.showMarkers(filteredMarkers);
+
+            // filter areas
             self.locationsList(filteredAreas);
         }
 
@@ -78,6 +91,15 @@
             }
 
             infoWindow.marker = marker;
+        }
+
+        function onLocationClick(title) {
+            for (var i = 0; i < View.markers.length; ++i) {
+                if (View.markers[i].locationData.title === title) {
+                    displayMarker(View.markers[i]);
+                    return;
+                }
+            }
         }
 
         // created vm class in order to invoke when loaded

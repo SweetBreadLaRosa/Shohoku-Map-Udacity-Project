@@ -21,7 +21,9 @@
                    placeholder="Filter your court!">
         </div>
         <ul class="filtered-locations" data-bind="foreach: locationsList">
-            <li class="list" data-bind="text: title"></li>
+            <li class="list" data-bind="text: title, event: {
+            click: $parent.onLocationClick.bind($data, title)
+            }"></li>
         </ul>
     </div>
     <div id="map"></div>

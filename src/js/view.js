@@ -36,6 +36,9 @@
                     icon: this.createMarkerImage(Model.markerColor)
                 });
 
+                //to help link marker to filtered list
+                marker.locationData = locationsCollection[i];
+
                 // push into markers array
                 this.markers.push(marker);
             }
@@ -49,6 +52,18 @@
                 new google.maps.Point(0, 0),
                 new google.maps.Point(10, 34),
                 new google.maps.Size(26, 34));
+        },
+
+        showMarkers: function (arrayOfMarkers) {
+            for(var i = 0; i < arrayOfMarkers.length; ++i) {
+                arrayOfMarkers[i].setVisible(true);
+            }
+        },
+
+        hideMarkers: function (arrayOfMarkers) {
+            for(var i = 0; i < arrayOfMarkers.length; ++i) {
+                arrayOfMarkers[i].setVisible(false);
+            }
         }
 
         // going to need to hide and show markers as well
