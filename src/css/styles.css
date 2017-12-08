@@ -62,23 +62,12 @@ body {
     }
 }
 
-@media screen and (max-width: 600px) {
+@media screen and (max-width: 720px) {
     .options-box {
         width: 159px;
     }
     #map {
         width: calc(100vw - 181px);
         left: 181px;
-    }
-}
-
-
-@media screen and (max-width: 740px) {
-    .options-box {
-        width: 120px;
-    }
-    #map {
-        width: calc(100vw - 120px);
-        left: 120px;
     }
 }
