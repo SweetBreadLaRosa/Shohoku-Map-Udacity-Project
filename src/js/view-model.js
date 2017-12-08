@@ -47,8 +47,15 @@
         function filterAndListLocations() {
             // grab the text from the dom, grab in the view
             var text = self.filterSearchText();
+            var filteredAreas = [];
 
-            // for loop to match
+            // for loop to match or not?
+            for (var i = 0; i < Model.hoopLocations.length; ++i) {
+                if (Model.hoopLocations[i].title.toLowerCase().includes(text)) {
+                    filteredAreas.push(Model.hoopLocations[i]);
+                }
+            }
+            self.locationsList(filteredAreas);
         }
 
         function populateInfoWindow(marker, infoWindow) {

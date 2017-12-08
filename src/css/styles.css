@@ -37,3 +37,7 @@ body {
 #area-text {
     width: 80%;
 }
+
+.list {
+    list-style: none;
+}

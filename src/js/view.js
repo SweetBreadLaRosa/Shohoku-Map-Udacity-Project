@@ -50,6 +50,8 @@
                 new google.maps.Point(10, 34),
                 new google.maps.Size(26, 34));
         }
+
+        // going to need to hide and show markers as well
     }
 
     // using the function call to attach the view to the window so I can grab it globally
