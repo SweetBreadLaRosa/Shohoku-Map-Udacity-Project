@@ -82,18 +82,12 @@
                 infoWindow.marker = null;
             });
 
-            // add title of court to content string and render in UI
-            // todo: maybe we should move this to the view
-
             // lets try adding the address we get from 4 square
-
-            console.log('this should be different everytime', marker.locationData.location);
             get4SquareLocationData(
                 marker.locationData.location,
                 marker.locationData.title,
                 function(data) {
-                    infoWindow.setContent('<div>' + data.name + '</div><br><div>' + 'Address: ' + data.location.address + '</div>');
-                    infoWindow.open(View.googleMapObject, marker);
+                    View.updateInfoWindow(marker, data);
             });
 
             if (infoWindow.marker) {
@@ -125,8 +119,8 @@
                     callback(data.response.venues[0]);
                 },
                 error: function (e) {
-                    console.log('error in ajax req', JSON.stringify(e));
-                    callback = null;
+                    console.log('error in get 4square data', JSON.stringify(e));
+                    callback(null);
                 }
             });
         }
