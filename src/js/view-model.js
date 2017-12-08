@@ -50,7 +50,7 @@
         // ids for # and classes are .
         function filterAndListLocations() {
             // grab the text from the dom, grab in the view
-            var text = self.filterSearchText();
+            var text = self.filterSearchText().toLowerCase();
             var filteredAreas = [];
             var filteredMarkers = [];
 
