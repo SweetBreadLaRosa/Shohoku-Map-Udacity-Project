@@ -64,14 +64,14 @@ body {
 
 @media screen and (max-width: 720px) {
     .options-box {
-        width: 159px;
+        width: 130px;
         font-size: 10px;
     }
     .list {
         font-size: 12px;
     }
     #map {
-        width: calc(100vw - 181px);
-        left: 181px;
+        width: calc(100vw - 152px);
+        left: 152px;
     }
 }
