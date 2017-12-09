@@ -6,7 +6,7 @@
     };
 
     this.errorLoadingGoogleApi = function() {
-        // todo: show error message
+        alert('Oooooh No! Google Maps has failed to load. Try reloading the page!');
     }
 
 }).call(window);

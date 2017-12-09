@@ -70,8 +70,9 @@
         updateInfoWindow: function (marker, data) {
 
             // default to just title form the Model
-            if (null) {
+            if (!data) {
                 this.infoWindow.setContent('<div>' + marker.locationData.title + '</div>');
+                return;
             }
 
             // use formatted address array instead of just the address property from the data object
