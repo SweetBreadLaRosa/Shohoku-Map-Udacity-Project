@@ -114,11 +114,10 @@
                 dataType: 'json',
                 async: true,
                 success: function (data) {
-                    console.log('success', data.response.venues[0]);
                     callback(data.response.venues[0]);
                 },
-                error: function (e) {
-                    console.log('error in get 4square data', JSON.stringify(e));
+                error: function () {
+                    alert('Error in retrieving foursquare data.');
                     callback(null);
                 }
             });

@@ -71,7 +71,9 @@
 
             // default to just title from the Model if the data comes back as null
             if (!data) {
-                this.infoWindow.setContent('<div>' + marker.locationData.title + '</div>');
+                this.infoWindow.setContent('<div>' + marker.locationData.title + '</div>' +
+                    '<div>Warning: Unable to retrieve foursquare location data at this time.</div>');
+                this.infoWindow.open(View.googleMapObject, marker);
                 return;
             }
 

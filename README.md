@@ -28,3 +28,8 @@ I also want to note that the third party API used was foursquare.
 underneath.
 * Basically a user a variety of actions to choose from, all actions for learning more data
 about a certain location.
+
+### HOW TO USE LOCALLY:
+* Download or Clone this repository
+* Open project and navigate to the index.html
+* Open index.html in any browser you prefer to launch the application
