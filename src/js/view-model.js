@@ -47,7 +47,6 @@
         }
 
         // list and filter locations
-        // ids for # and classes are .
         function filterAndListLocations() {
             // grab the text from the dom, grab in the view
             var text = self.filterSearchText().toLowerCase();
@@ -82,7 +81,7 @@
                 infoWindow.marker = null;
             });
 
-            // lets try adding the address we get from 4 square
+            // using the 4square data and updating the info window
             get4SquareLocationData(
                 marker.locationData.location,
                 marker.locationData.title,
@@ -125,6 +124,7 @@
             });
         }
 
+        // extracted building out the url string into its own function because of how beast it was
         function buildUrlForAjaxReq(latlng, name) {
             return 'https://api.foursquare.com/v2/venues/search?' +
             'll=' + latlng.lat + ',' + latlng.lng +

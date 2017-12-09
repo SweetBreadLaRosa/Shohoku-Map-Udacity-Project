@@ -69,12 +69,13 @@
         // grab data from 4square and update the infoWindow
         updateInfoWindow: function (marker, data) {
 
-            // default to just title form the Model
+            // default to just title from the Model if the data comes back as null
             if (!data) {
                 this.infoWindow.setContent('<div>' + marker.locationData.title + '</div>');
                 return;
             }
 
+            // this is much better information than what my Model contains
             // use formatted address array instead of just the address property from the data object
             var addressData = data.location.formattedAddress;
 
